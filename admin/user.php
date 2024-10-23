@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'koneksi.php';
 // munculkan / pilih sebuah atau semua kolom dari table user
 $queryUser = mysqli_query($koneksi, "SELECT * FROM user");
