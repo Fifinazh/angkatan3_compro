@@ -7,7 +7,7 @@
 
  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
      <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-         <img width="50" src="admin/upload/<?php echo $rowSetting['logo'] ?>" alt="">
+         <img width="70" src="admin/upload/<?php echo $rowSetting['logo'] ?>" alt="">
      </a>
      <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
          <span class="navbar-toggler-icon"></span>

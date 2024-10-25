@@ -22,7 +22,7 @@ if (isset($_POST['simpan'])) {
             $ukuran_foto = $_FILES['foto']['size'];
 
             //kita bikin tipe foto: png, jpg, jpeg
-            $ext = array('png', 'jpg', 'jpeg');
+            $ext = array('png', 'jpg', 'jpeg', 'jfif');
             $extFoto = pathinfo($nama_foto, PATHINFO_EXTENSION);
 
             //JIKA EXTENSI FOTO TIDAK EXT YANG TERDAFTAR DI ARRAY EXT
@@ -31,6 +31,8 @@ if (isset($_POST['simpan'])) {
                 die;
             } else {
                 //pindahkan gambar dari tmp folder ke folder yg sudah kita buat
+                // unlink() : mendelete file
+                unlink('upload/' . $rowPengaturan['logo']);
                 move_uploaded_file($_FILES['foto']['tmp_name'], 'upload/' . $nama_foto);
 
                 $update = mysqli_query($koneksi, "UPDATE general_setting SET website_name='$website_name', website_link='$website_link', logo='$nama_foto', website_phone='$website_phone', website_email='$website_email', website_adress='$website_adress' WHERE id = '$id'");
@@ -185,6 +187,7 @@ if (isset($_POST['edit'])) {
                                                 <div class="col-sm-12">
                                                     <label for="" class="form-label">Foto</label>
                                                     <input type="file" name="foto">
+                                                    <img width="200" src="upload/<?php echo isset($rowPengaturan['logo']) ? $rowPengaturan['logo'] : '' ?>" alt="">
                                                 </div>
                                             </div>
                                             <div class="mb-3">
